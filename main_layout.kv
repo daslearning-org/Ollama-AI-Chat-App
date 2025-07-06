@@ -1,0 +1,22 @@
+# main_layout.kv
+
+#:import MDScreenManager kivymd.uix.screenmanager.MDScreenManager
+#:import MDTextField kivymd.uix.textfield.MDTextField
+#:import MDRectangleFlatButton kivymd.uix.button.MDRectangleFlatButton
+#:import MDFillRoundFlatButton kivymd.uix.button.MDFillRoundFlatButton
+#:import MDLabel kivymd.uix.label.MDLabel
+#:import MDScreen kivymd.uix.screen.MDScreen
+#:import MDBoxLayout kivymd.uix.boxlayout.MDBoxLayout
+#:import MDScrollView kivymd.uix.scrollview.MDScrollView
+#:import dp kivy.metrics.dp
+#:import sp kivy.metrics.sp
+
+# Include your other KV files
+#:include kv_files/name_input_screen.kv
+#:include kv_files/chatbot_screen.kv
+
+# Define the ScreenManager as the root widget
+MDScreenManager:
+    # Add your screens here as children of the ScreenManager
+    NameInputScreen:
+    ChatbotScreen:
