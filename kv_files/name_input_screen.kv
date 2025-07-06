@@ -1,0 +1,22 @@
+# kv_files/name_input_screen.kv
+
+<NameInputScreen>:
+    MDLabel:
+        text: "Enter Ollama URI"
+        halign: "center"
+        font_style: "H5"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.7}
+    MDTextField:
+        id: ollama_url
+        hint_text: "Enter the URI"
+        mode: "rectangle"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint_x: 0.8
+        font_size: sp(24)
+        multiline: False
+    MDRectangleFlatButton:
+        text: "Start Chat"
+        pos_hint: {'center_x': 0.5, 'center_y': 0.3}
+        size_hint_x: 0.6
+        font_size: sp(24)
+        on_release: app.go_to_chatbot(self, ollama_url)
