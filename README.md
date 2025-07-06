@@ -41,13 +41,11 @@ sudo apt install -y ant autoconf automake ccache cmake g++ gcc lbzip2 libffi-dev
 java -version
 javac -version
 
-# create python virtual environment
-python3.9 -m venv .env
-source .env/bin/activate
-
 # install python modules
 git clone https://github.com/daslearning-org/Ollama-AI-Chat-App.git
 cd Ollama-AI-Chat-App/kivy/
+python3.9 -m venv .env # create python virtual environment
+source .env/bin/activate
 pip install -r requirements.txt
 
 # build the android apk
