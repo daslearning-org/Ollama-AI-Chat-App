@@ -12,6 +12,9 @@ This is the scematic flow [diagram](./docs/images/kivyOllamaFlow.gif) <br>
 
 ## 🧑‍💻 Quickstart Guide
 
+### 📱 Download & Run the Android App
+You can check the [Releases](https://github.com/daslearning-org/Ollama-AI-Chat-App/releases) and downlaod the latest version of the android app on your phone.
+
 ### 🐍 Run with Python
 ```bash
 git clone https://github.com/daslearning-org/Ollama-AI-Chat-App.git
