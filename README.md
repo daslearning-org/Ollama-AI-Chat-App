@@ -4,7 +4,8 @@ Your private AI chatbot app for Android, Linux, Windows and iOS. The application
 > Overview: The app uses KivyMD and Kivy mainly for the AI Chatbot UI and uses python requests module to perform the chat functions using the Ollama API endpoint. The Ollama can be hosted anywhere as long as the application has a network connectivity to the Ollama URL. The app can pull out the list of installed LLM models and we can choose a model from the drop-down menu at the top. Please find the installation and build steps as descried below.
 
 ## 📽️ Demo
-Coming soon...
+You can click on the below Image or this [Youtube Link](https://www.youtube.com/watch?v=a-azvqDL78k) to see the demo. Please let me know in the comments, how do you feel about this App. <br>
+[![AI-Kivy-Chatbot](./docs/images/thumb.jpg)](https://www.youtube.com/watch?v=a-azvqDL78k)
 
 ## 🖧 Our Scematic Architecture
 This is the scematic flow [diagram](./docs/images/kivyOllamaFlow.gif) <br>
