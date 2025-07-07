@@ -1,5 +1,3 @@
 kivy[base]
 kivymd
 m2r2
-buildozer
-Cython==0.29.33
