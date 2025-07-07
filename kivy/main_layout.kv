@@ -8,15 +8,16 @@
 #:import MDScreen kivymd.uix.screen.MDScreen
 #:import MDBoxLayout kivymd.uix.boxlayout.MDBoxLayout
 #:import MDScrollView kivymd.uix.scrollview.MDScrollView
+#:import MDDropDownItem kivymd.uix.dropdownitem.MDDropDownItem
 #:import dp kivy.metrics.dp
 #:import sp kivy.metrics.sp
 
 # Include your other KV files
-#:include kv_files/name_input_screen.kv
-#:include kv_files/chatbot_screen.kv
+#:include ollama_screen.kv
+#:include chatbot_screen.kv
 
 # Define the ScreenManager as the root widget
 MDScreenManager:
     # Add your screens here as children of the ScreenManager
-    NameInputScreen:
+    OllamaInputScreen:
     ChatbotScreen:
