@@ -53,8 +53,8 @@ pip install -r requirements.txt
 buildozer android debug # this may take a good amount of time for the first time & will generate the apk in the bin directory
 ```
 
-### Build Computer Application (Windows / Linux / MacOs)
-Again a `Linux` environment is recommended and please follow the same steps from above till the pip module installations (do not require buildozer for desktop apps). Build cross platform apps from [docker image](https://hub.docker.com/r/cdrx/pyinstaller-windows)
+### 🖳 Build Computer Application (Windows / Linux / MacOS)
+A `Python` virtual environment is recommended and please follow the same steps from above till the pip module installations (do not require buildozer for desktop apps). It builds a native app depending on the OS type i.e. `.exe` if you are running `PyInstaller` from a Windows machine. Build computer apps from [docker image](https://hub.docker.com/r/cdrx/pyinstaller-windows) for any OS type.
 
 ```bash
 # install pyinstaller
