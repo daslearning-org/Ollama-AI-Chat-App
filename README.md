@@ -52,3 +52,19 @@ pip install -r requirements.txt
 # build the android apk
 buildozer android debug # this may take a good amount of time for the first time & will generate the apk in the bin directory
 ```
+
+### Build Computer Application (Windows / Linux / MacOs)
+Again a `Linux` environment is recommended and please follow the same steps from above till the pip module installations (do not require buildozer for desktop apps). Build cross platform apps from [docker image](https://hub.docker.com/r/cdrx/pyinstaller-windows)
+
+```bash
+# install pyinstaller
+pip install pyinstaller
+
+# generate the spec file
+pyinstaller --name "dasLearningChat" --windowed --onefile main.py
+
+# then update the spec file as needed
+# then build your app which will be native to the OS i.e. Linux or Windows or MAC
+pyinstaller dasLearningChat.spec
+
+```

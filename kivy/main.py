@@ -1,5 +1,6 @@
 import os
 os.environ['KIVY_GL_BACKEND'] = 'sdl2'
+import sys
 #from datetime import datetime
 
 # kivy & kivymd imports
@@ -8,6 +9,7 @@ from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.metrics import dp, sp
+from kivy.resources import resource_add_path
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.label import MDLabel
 
@@ -18,7 +20,7 @@ from m2r2 import convert
 Window.softinput_mode = "below_target"
 
 # Import your screen classes
-from screens.name_screen import NameInputScreen
+from screens.ollama_screen import OllamaInputScreen
 from screens.chatbot_screen import ChatbotScreen
 
 # import our local api & modules
@@ -26,8 +28,16 @@ from ollamaApi import get_llm_models, chat_with_llm
 from myrst import MyRstDocument
 
 ## Global definitions
-
-# RST as bot msg
+# Determine the base path for your application's resources
+if getattr(sys, 'frozen', False):
+    # Running as a PyInstaller bundle
+    base_path = sys._MEIPASS
+else:
+    # Running in a normal Python environment
+    base_path = os.path.dirname(os.path.abspath(__file__))
+kv_file_path = os.path.join(base_path, 'main_layout.kv')
+kv_files_dir = os.path.join(base_path, 'kv_files')
+resource_add_path(kv_files_dir)
 
 ## The APP definitions
 class MyApp(MDApp):
@@ -43,7 +53,7 @@ class MyApp(MDApp):
         self.theme_cls.primary_palette = "Blue"
         self.theme_cls.accent_palette = "Green"
         self.theme_cls.theme_style = "Light"
-        return Builder.load_file("main_layout.kv")
+        return Builder.load_file(kv_file_path)
 
     # ... (rest of your methods like go_to_chatbot, go_back_to_ollama_input, send_message, update_chatbot_welcome)
     def go_to_chatbot(self, instance, ollama_uri_widget):
