@@ -47,7 +47,7 @@ git clone https://github.com/daslearning-org/Ollama-AI-Chat-App.git
 cd Ollama-AI-Chat-App/kivy/
 python3.9 -m venv .env # create python virtual environment
 source .env/bin/activate
-pip install -r requirements.txt
+pip install -r android-requirements.txt
 
 # build the android apk
 buildozer android debug # this may take a good amount of time for the first time & will generate the apk in the bin directory
@@ -61,10 +61,57 @@ A `Python` virtual environment is recommended and please follow the same steps f
 pip install pyinstaller
 
 # generate the spec file
-pyinstaller --name "dasLearningChat" --windowed --onefile main.py
+pyinstaller --name "dasLearningChat" --windowed --onefile main.py # optional as it is already create in the repo
 
 # then update the spec file as needed
 # then build your app which will be native to the OS i.e. Linux or Windows or MAC
 pyinstaller dasLearningChat.spec
+```
 
+#### Build Windows exe from Linux
+
+* Install Wine
+```bash
+# Add the Wine repository key
+sudo mkdir -pm755 /etc/apt/keyrings
+sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+
+# Add the Wine repository for your Linux Mint version
+# For Linux Mint 21.x (Vanessa, Virginia, Victoria - based on Ubuntu 22.04 Jammy Jellyfish)
+# Replace 'jammy' with your Ubuntu base codename if different (e.g., 'focal' for Mint 20.x)
+sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+
+# Update package lists
+sudo apt update
+
+# Install Wine (Stable branch is usually recommended)
+sudo apt install --install-recommends winehq-stable
+
+# If you need 32-bit support (highly recommended for Python/PyInstaller compatibility)
+# This command typically handles it, but if you encounter issues later, ensure 32-bit architecture is enabled:
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install wine32 # This might be pulled by winehq-stable, but good to ensure
+```
+
+* Download Windows Python from [official page](https://www.python.org/downloads/windows/) and then install
+```bash
+# Navigate to where you downloaded the Python installer
+cd ~/Downloads
+
+# Run the installer using wine
+# Replace 'python-3.9.13-amd64.exe' with the actual filename you downloaded
+wine python-3.9.13-amd64.exe
+```
+
+* Then run the development
+```bash
+cd kivy/
+wine pip install pyinstaller
+wine pip install -r requirements.txt
+# Also install kivy-deps.sdl2, kivy-deps.glew, kivy-deps.angle explicitly if not pulled by Kivy/KivyMD
+wine pip install kivy-deps.sdl2 kivy-deps.glew kivy-deps.angle
+
+# Replace 'Python39' with your installed Python version in Wine
+wine pyinstaller dasLearningChat.spec # exe will be in the dist folder
 ```
