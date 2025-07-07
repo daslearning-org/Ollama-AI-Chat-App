@@ -61,7 +61,7 @@ A `Python` virtual environment is recommended and please follow the same steps f
 pip install pyinstaller
 
 # generate the spec file
-pyinstaller --name "dasLearningChat" --windowed --onefile main.py
+pyinstaller --name "dasLearningChat" --windowed --onefile main.py # optional as it is already create in the repo
 
 # then update the spec file as needed
 # then build your app which will be native to the OS i.e. Linux or Windows or MAC
@@ -107,11 +107,11 @@ wine python-3.9.13-amd64.exe
 * Then run the development
 ```bash
 cd kivy/
-wine C:\\Python39\\Scripts\\pip.exe install pyinstaller
-wine C:\\Python39\\Scripts\\pip.exe install -r requirements.txt
+wine pip install pyinstaller
+wine pip install -r requirements.txt
 # Also install kivy-deps.sdl2, kivy-deps.glew, kivy-deps.angle explicitly if not pulled by Kivy/KivyMD
-wine C:\\Python39\\Scripts\\pip.exe install kivy-deps.sdl2 kivy-deps.glew kivy-deps.angle
+wine pip install kivy-deps.sdl2 kivy-deps.glew kivy-deps.angle
 
 # Replace 'Python39' with your installed Python version in Wine
-wine C:\\Python39\\Scripts\\pyinstaller.exe dasLearningChat.spec # exe will be in the dist folder
+wine pyinstaller dasLearningChat.spec # exe will be in the dist folder
 ```
