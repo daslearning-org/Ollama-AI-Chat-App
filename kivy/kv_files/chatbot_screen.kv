@@ -41,21 +41,6 @@
                 size_hint_y: None
                 height: self.minimum_height
 
-                #MDLabel:
-                #    id: chat_label # chat history label
-                #    size_hint_y: None
-                #    markup: True
-                #    halign: 'left'
-                #    valign: 'top'
-                #    padding: dp(10), dp(10)
-                #    font_style: "H5"
-                #    # Binding texture_size to size for wrapping.
-                #    # In KV, you directly set the height based on content.
-                #    # text_size: self.width, None is the standard way to enable wrapping.
-                #    # size: self.texture_size will then make the widget adjust its height.
-                #    text_size: self.width, None
-                #    height: self.texture_size[1]
-
         MDBoxLayout: # Input box
             size_hint_y: 0.2
             orientation: 'horizontal'
