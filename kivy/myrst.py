@@ -168,6 +168,9 @@ Builder.load_string('''
     height: self.texture_size[1] + self.my
     text_size: self.width - self.mx, None
     font_size: sp(self.document.base_font_size / 2.0)
+    font_name: 'data/fonts/Roboto-Regular.ttf'
+    allow_selection: True
+    allow_copy: True
 
 <RstTerm>:
     size_hint: None, None
@@ -376,6 +379,9 @@ Builder.load_string('''
     width: self.texture_size[0] + dp(10)
     text_size: None, self.height - dp(10)
     font_size: sp(self.document.base_font_size / 2.0)
+    font_name: 'data/fonts/Roboto-Regular.ttf'
+    allow_selection: True
+    allow_copy: True
 
 <RstEmptySpace>:
     size_hint: 0.01, 0.01
@@ -691,7 +697,7 @@ class RstTitle(Label):
     document = ObjectProperty(None)
 
 
-class RstParagraph(Label):
+class RstParagraph(MDLabel):
 
     mx = NumericProperty(10)
 
@@ -723,7 +729,7 @@ class RstListItem(GridLayout):
     content = ObjectProperty(None)
 
 
-class RstListBullet(Label):
+class RstListBullet(MDLabel):
 
     document = ObjectProperty(None)
 
