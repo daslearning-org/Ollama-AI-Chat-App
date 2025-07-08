@@ -29,12 +29,15 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1.3
-#android.release_keystore = ~/keystores/dlchat.keystore
+#version = 0.1.3
 
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
 # version.filename = %(source.dir)s/main.py
+version.filename = %(source.dir)s/VERSION
+version.regex = ^(\d+\.\d+\.\d+)$
+
+#android.release_keystore = ~/keystores/dlchat.keystore
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy

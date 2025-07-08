@@ -10,6 +10,7 @@ from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.metrics import dp, sp
 from kivy.resources import resource_add_path
+#from kivy.utils import platform
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.label import MDLabel
 
@@ -55,7 +56,6 @@ class MyApp(MDApp):
         self.theme_cls.theme_style = "Light"
         return Builder.load_file(kv_file_path)
 
-    # ... (rest of your methods like go_to_chatbot, go_back_to_ollama_input, send_message, update_chatbot_welcome)
     def go_to_chatbot(self, instance, ollama_uri_widget):
         ollama_uri = ollama_uri_widget.text.strip()
         if ollama_uri:
@@ -76,7 +76,7 @@ class MyApp(MDApp):
         MDSnackbar(
             MDLabel(
                 text = text,
-                font_style = "Body2"
+                font_style = "Subtitle1"
             ),
             y=dp(24),
             pos_hint={"center_x": 0.5},
