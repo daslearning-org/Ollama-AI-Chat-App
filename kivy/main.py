@@ -7,12 +7,12 @@ import re
 
 # kivy & kivymd imports
 from kivy.core.window import Window
-from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.metrics import dp, sp
 from kivy.resources import resource_add_path
 from kivy.core.clipboard import Clipboard
+from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.label import MDLabel
 

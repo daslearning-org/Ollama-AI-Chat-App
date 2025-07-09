@@ -118,3 +118,20 @@ wine pip install kivy-deps.sdl2 kivy-deps.glew kivy-deps.angle
 # Replace 'Python39' with your installed Python version in Wine
 wine pyinstaller dasLearningChat.spec # exe will be in the dist folder
 ```
+
+## 🐞 Issues
+There can be few issues & some solutions around it.
+
+### Android Issues
+
+* Sometimes the apk might not get installed. You may enable `Developer Options` > `USB Debugging` and run below command with [adb tool](https://developer.android.com/tools/adb).
+```bash
+# check your packages (it may not show the uninstalled version, some leftover may cause the issue)
+adb shell pm list packages | grep dlchat
+
+# uninstall cleans it
+adb uninstall in.daslearning.dlchat
+
+# you may use buildozer deploy run to check the adb
+buildozer android debug deploy run
+```
