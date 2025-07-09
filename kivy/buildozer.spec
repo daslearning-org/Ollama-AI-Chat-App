@@ -29,7 +29,10 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_patterns = license,images/*/*.jpg
 
 # (str) Application versioning (method 1)
-version = 0.1.3
+#version = 0.1.3
+version.filename = %(source.dir)s/VERSION
+version.regex = ^(\d+\.\d+\.\d+)$
+
 #android.release_keystore = ~/keystores/dlchat.keystore
 
 # (str) Application versioning (method 2)
