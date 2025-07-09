@@ -1,0 +1,203 @@
+# Check configuration tokens
+# Ensure build layout
+# Check configuration tokens
+# Preparing build
+# Check requirements for android
+# Search for Git (git)
+#  -> found at /usr/bin/git
+# Search for Cython (cython)
+#  -> found at /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.env/bin/cython
+# Search for Java compiler (javac)
+#  -> found at /usr/lib/jvm/java-17-openjdk-amd64/bin/javac
+# Search for Java keytool (keytool)
+#  -> found at /usr/lib/jvm/java-17-openjdk-amd64/bin/keytool
+# Install platform
+# Run ['git', 'config', '--get', 'remote.origin.url']
+# Cwd /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/python-for-android
+https://github.com/kivy/python-for-android.git
+# Run ['git', 'branch', '-vv']
+# Cwd /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/python-for-android
+* master 957a3e5f [origin/master] Merge pull request #2959 from kivy/release-2024.01.21
+# Run ['/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.env/bin/python3.9', '-m', 'pip', 'install', '-q', 'appdirs', 'colorama>=0.3.3', 'jinja2', 'sh>=1.10, <2.0; sys_platform!="win32"', 'build', 'toml', 'packaging', 'setuptools']
+# Cwd None
+# Apache ANT found at /home/somnath/.buildozer/android/platform/apache-ant-1.9.4
+# Android SDK found at /home/somnath/.buildozer/android/platform/android-sdk
+# Recommended android's NDK version by p4a is: 25b
+# Android NDK found at /home/somnath/.buildozer/android/platform/android-ndk-r25b
+# Run ['/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.env/bin/python3.9', '-m', 'pythonforandroid.toolchain', 'aab', '-h', '--color=always', '--storage-dir=/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a', '--ndk-api=21', '--ignore-setup-py', '--debug']
+# Cwd /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/python-for-android
+usage: toolchain.py aab [-h] [--debug] [--color {always,never,auto}]
+                        [--sdk-dir SDK_DIR] [--ndk-dir NDK_DIR]
+                        [--android-api ANDROID_API]
+                        [--ndk-version NDK_VERSION] [--ndk-api NDK_API]
+                        [--symlink-bootstrap-files]
+                        [--storage-dir STORAGE_DIR] [--arch ARCH]
+                        [--dist-name DIST_NAME] [--requirements REQUIREMENTS]
+                        [--recipe-blacklist RECIPE_BLACKLIST]
+                        [--blacklist-requirements BLACKLIST_REQUIREMENTS]
+                        [--bootstrap BOOTSTRAP] [--hook HOOK] [--force-build]
+                        [--no-force-build] [--require-perfect-match]
+                        [--no-require-perfect-match] [--allow-replace-dist]
+                        [--no-allow-replace-dist]
+                        [--local-recipes LOCAL_RECIPES]
+                        [--activity-class-name ACTIVITY_CLASS_NAME]
+                        [--service-class-name SERVICE_CLASS_NAME]
+                        [--java-build-tool {auto,ant,gradle}] [--copy-libs]
+                        [--no-copy-libs] [--add-asset ASSETS]
+                        [--add-resource RESOURCES] [--private PRIVATE]
+                        [--use-setup-py] [--ignore-setup-py] [--release]
+                        [--with-debug-symbols] [--keystore KEYSTORE]
+                        [--signkey SIGNKEY] [--keystorepw KEYSTOREPW]
+                        [--signkeypw SIGNKEYPW]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --debug               Display debug output and all build info
+  --color {always,never,auto}
+                        Enable or disable color output (default enabled on
+                        tty)
+  --sdk-dir SDK_DIR, --sdk_dir SDK_DIR
+                        The filepath where the Android SDK is installed
+  --ndk-dir NDK_DIR, --ndk_dir NDK_DIR
+                        The filepath where the Android NDK is installed
+  --android-api ANDROID_API, --android_api ANDROID_API
+                        The Android API level to build against defaults to 33
+                        if not specified.
+  --ndk-version NDK_VERSION, --ndk_version NDK_VERSION
+                        DEPRECATED: the NDK version is now found automatically
+                        or not at all.
+  --ndk-api NDK_API     The Android API level to compile against. This should
+                        be your *minimal supported* API, not normally the same
+                        as your --android-api. Defaults to min(ANDROID_API,
+                        21) if not specified.
+  --symlink-bootstrap-files, --ssymlink_bootstrap_files
+                        If True, symlinks the bootstrap files creation. This
+                        is useful for development only, it could also cause
+                        weird problems.
+  --storage-dir STORAGE_DIR
+                        Primary storage directory for downloads and builds
+                        (default: /home/somnath/.local/share/python-for-
+                        android)
+  --arch ARCH           The archs to build for.
+  --dist-name DIST_NAME, --dist_name DIST_NAME
+                        The name of the distribution to use or create
+  --requirements REQUIREMENTS
+                        Dependencies of your app, should be recipe names or
+                        Python modules. NOT NECESSARY if you are using Python
+                        3 with --use-setup-py
+  --recipe-blacklist RECIPE_BLACKLIST
+                        Blacklist an internal recipe from use. Allows
+                        disabling Python 3 core modules to save size
+  --blacklist-requirements BLACKLIST_REQUIREMENTS
+                        Blacklist an internal recipe from use. Allows
+                        disabling Python 3 core modules to save size
+  --bootstrap BOOTSTRAP
+                        The bootstrap to build with. Leave unset to choose
+                        automatically.
+  --hook HOOK           Filename to a module that contains python-for-android
+                        hooks
+  --local-recipes LOCAL_RECIPES, --local_recipes LOCAL_RECIPES
+                        Directory to look for local recipes
+  --activity-class-name ACTIVITY_CLASS_NAME
+                        The full java class name of the main activity
+  --service-class-name SERVICE_CLASS_NAME
+                        Full java package name of the PythonService class
+  --java-build-tool {auto,ant,gradle}
+                        The java build tool to use when packaging the APK,
+                        defaults to automatically selecting an appropriate
+                        tool.
+  --add-asset ASSETS    Put this in the assets folder in the apk.
+  --add-resource RESOURCES
+                        Put this in the res folder in the apk.
+  --private PRIVATE     the directory with the app source code files
+                        (containing your main.py entrypoint)
+  --use-setup-py        Process the setup.py of a project if present.
+                        (Experimental!
+  --ignore-setup-py     Don't run the setup.py of a project if present. This
+                        may be required if the setup.py is not designed to
+                        work inside p4a (e.g. by installing dependencies that
+                        won't work or aren't desired on Android
+  --release             Build your app as a non-debug release build. (Disables
+                        gdb debugging among other things)
+  --with-debug-symbols  Will keep debug symbols from `.so` files.
+  --keystore KEYSTORE   Keystore for JAR signing key, will use jarsigner
+                        default if not specified (release build only)
+  --signkey SIGNKEY     Key alias to sign PARSER_APK. with (release build
+                        only)
+  --keystorepw KEYSTOREPW
+                        Password for keystore
+  --signkeypw SIGNKEYPW
+                        Password for key alias
+
+  Whether to force compilation of a new distribution
+
+  --force-build
+  --no-force-build      (this is the default)
+  --require-perfect-match
+  --no-require-perfect-match
+                        (this is the default)
+  --allow-replace-dist  (this is the default)
+  --no-allow-replace-dist
+  --copy-libs
+  --no-copy-libs        (this is the default)
+# Check application requirements
+# Compile platform
+# Run ['/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.env/bin/python3.9', '-m', 'pythonforandroid.toolchain', 'create', '--dist_name=dlchat', '--bootstrap=sdl2', '--requirements=python3,kivy,kivymd,requests,certifi,idna,charset_normalizer,urllib3,pyjnius,m2r2,docutils,mistune==0.8.4,filetype,pygments,pillow', '--arch=arm64-v8a', '--arch=armeabi-v7a', '--copy-libs', '--color=always', '--storage-dir=/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a', '--ndk-api=21', '--ignore-setup-py', '--debug']
+# Cwd /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/python-for-android
+# Build the application #4
+# Copy application source from /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy
+# Create directory /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/ollamaApi.py
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/main_layout.kv
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/main.py
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/VERSION
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/myrst.py
+# Create directory /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/screens
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/screens/__init__.py
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/screens/chatbot_screen.py
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/screens/ollama_screen.py
+# Create directory /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/kv_files
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/kv_files/chatbot_screen.kv
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/kv_files/ollama_screen.kv
+# Create directory /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/data/images
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/favicon.png
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/apple-touch-icon.png
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/android-chrome-512x512.png
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/android-chrome-192x192.png
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/favicon-32x32.png
+# Copy /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/data/images/favicon-16x16.png
+# Package the application
+# Captured version: 0.1.4
+# project.properties updated
+# Run ['/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.env/bin/python3.9', '-m', 'pythonforandroid.toolchain', 'apk', '--bootstrap', 'sdl2', '--dist_name', 'dlchat', '--name', 'DasLearning Chat', '--version', '0.1.4', '--package', 'in.daslearning.dlchat', '--minsdk', '21', '--ndk-api', '21', '--private', '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app', '--permission', 'android.permission.INTERNET', '--android-entrypoint', 'org.kivy.android.PythonActivity', '--android-apptheme', '@android:style/Theme.NoTitleBar', '--icon', '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/./data/images/favicon.png', '--orientation', 'portrait', '--window', '--enable-androidx', '--copy-libs', '--arch', 'arm64-v8a', '--arch', 'armeabi-v7a', '--color=always', '--storage-dir=/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a', '--ndk-api=21', '--ignore-setup-py', '--debug']
+# Cwd /home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/platform/python-for-android
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/ollamaApi.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/sitecustomize.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/main.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/myrst.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/screens/__init__.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/screens/chatbot_screen.py'...
+Compiling '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/.buildozer/android/app/screens/ollama_screen.py'...
+No setup.py/pyproject.toml used, copying full private data into .apk.
+Applying Java source code patches...
+Applying patch: src/patches/SDLActivity.java.patch
+Warning: failed to apply patch (exit code 1), assuming it is already applied:  src/patches/SDLActivity.java.patch
+# Android packaging done!
+# APK dlchat-0.1.4-arm64-v8a_armeabi-v7a-debug.apk available in the bin directory
+# Run ['/home/somnath/.buildozer/android/platform/android-sdk/platform-tools/adb', 'devices']
+# Cwd None
+List of devices attached
+ZA222MFZRH	device
+
+# Deploy on ZA222MFZRH
+# Run ['/home/somnath/.buildozer/android/platform/android-sdk/platform-tools/adb', 'install', '-r', '/home/somnath/codes/git/my-org/Ollama-AI-Chat-App/kivy/bin/dlchat-0.1.4-arm64-v8a_armeabi-v7a-debug.apk']
+# Cwd /home/somnath/.buildozer/android/platform
+Performing Streamed Install
+Success
+# Application pushed.
+# Run on ZA222MFZRH
+# Run ['/home/somnath/.buildozer/android/platform/android-sdk/platform-tools/adb', 'shell', 'am', 'start', '-n', 'in.daslearning.dlchat/org.kivy.android.PythonActivity', '-a', 'org.kivy.android.PythonActivity']
+# Cwd /home/somnath/.buildozer/android/platform
+Starting: Intent { act=org.kivy.android.PythonActivity cmp=in.daslearning.dlchat/org.kivy.android.PythonActivity }
+# Waiting for application to start.
+# Application started.

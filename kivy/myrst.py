@@ -221,7 +221,8 @@ Builder.load_string('''
         font_name: 'data/fonts/RobotoMono-Regular.ttf'
         color: (0, 0, 0, 1)
         allow_selection: True
-        allow_copy: True
+        #allow_copy: True
+        on_selection: app.label_copy(self.text)
 
 <RstList>:
     cols: 2

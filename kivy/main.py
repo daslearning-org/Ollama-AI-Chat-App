@@ -1,15 +1,18 @@
+# python core modules
 import os
 os.environ['KIVY_GL_BACKEND'] = 'sdl2'
 import sys
+import re
 #from datetime import datetime
 
 # kivy & kivymd imports
 from kivy.core.window import Window
-from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 from kivy.metrics import dp, sp
 from kivy.resources import resource_add_path
+from kivy.core.clipboard import Clipboard
+from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.label import MDLabel
 
@@ -134,6 +137,11 @@ class MyApp(MDApp):
                 self.add_bot_message(self, err_msg_add, chat_label_widget)
         else:
             print("Please type a message.")
+
+    def label_copy(self, label_text):
+        #print(f"DEBUG: MarkUp Text> {label_text}")
+        plain_text = re.sub(r'\[/?(?:color|b|i|u|s|sub|sup|font|font_context|font_family|font_features|size|ref|anchor|text_language).*?\]', '', label_text)
+        Clipboard.copy(plain_text)
 
     def menu_callback(self, text_item, screen):
         self.selected_llm = text_item
