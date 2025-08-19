@@ -79,12 +79,15 @@ from kivy.uix.videoplayer import VideoPlayer
 from kivy.uix.anchorlayout import AnchorLayout
 from kivy.animation import Animation
 from kivy.logger import Logger
+from kivy.core.clipboard import Clipboard
+#from kivy.utils import escape_markup
 from kivymd.uix.boxlayout import MDBoxLayout
 from docutils.parsers import rst
 from docutils.parsers.rst import roles
 from docutils import nodes, frontend, utils
 from docutils.parsers.rst import Directive, directives
 from docutils.parsers.rst.roles import set_classes
+import re
 
 
 #
@@ -169,6 +172,9 @@ Builder.load_string('''
     height: self.texture_size[1] + self.my
     text_size: self.width - self.mx, None
     font_size: sp(self.document.base_font_size / 2.0)
+    font_name: 'data/fonts/Roboto-Regular.ttf'
+    allow_selection: True
+    allow_copy: True
 
 <RstTerm>:
     size_hint: None, None
@@ -378,6 +384,9 @@ Builder.load_string('''
     width: self.texture_size[0] + dp(10)
     text_size: None, self.height - dp(10)
     font_size: sp(self.document.base_font_size / 2.0)
+    font_name: 'data/fonts/Roboto-Regular.ttf'
+    allow_selection: True
+    allow_copy: True
 
 <RstEmptySpace>:
     size_hint: 0.01, 0.01
@@ -693,13 +702,20 @@ class RstTitle(Label):
     document = ObjectProperty(None)
 
 
-class RstParagraph(Label):
-
+class RstParagraph(MDLabel):
     mx = NumericProperty(10)
-
     my = NumericProperty(10)
-
     document = ObjectProperty(None)
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.bind(on_copy=self._on_label_copy)
+
+    def _on_label_copy(self, instance):
+        text_with_markup = instance.text
+        #print(f"DEBUG: Text before escape_markup: '{text_with_markup}'")
+        plain_text = re.sub(r'\[/?(?:color|b|i|u|s|sub|sup|font|font_context|font_family|font_features|size|ref|anchor|text_language).*?\]', '', text_with_markup)
+        Clipboard.copy(plain_text)
 
 
 class RstTerm(AnchorLayout):
@@ -716,6 +732,16 @@ class RstBlockQuote(GridLayout):
 class RstLiteralBlock(GridLayout):
     content = ObjectProperty(None)
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.ids.content.bind(on_copy=self._on_label_copy)
+
+    def _on_label_copy(self, instance):
+        text_with_markup = instance.text
+        #print(f"DEBUG: Text before escape_markup: '{text_with_markup}'")
+        plain_text = re.sub(r'\[/?(?:color|b|i|u|s|sub|sup|font|font_context|font_family|font_features|size|ref|anchor|text_language).*?\]', '', text_with_markup)
+        Clipboard.copy(plain_text)
+
 
 class RstList(GridLayout):
     pass
@@ -725,9 +751,18 @@ class RstListItem(GridLayout):
     content = ObjectProperty(None)
 
 
-class RstListBullet(Label):
-
+class RstListBullet(MDLabel):
     document = ObjectProperty(None)
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.bind(on_copy=self._on_label_copy)
+
+    def _on_label_copy(self, instance):
+        text_with_markup = instance.text
+        #print(f"DEBUG: Text before escape_markup: '{text_with_markup}'")
+        plain_text = re.sub(r'\[/?(?:color|b|i|u|s|sub|sup|font|font_context|font_family|font_features|size|ref|anchor|text_language).*?\]', '', text_with_markup)
+        Clipboard.copy(plain_text)
 
 
 class RstSystemMessage(GridLayout):

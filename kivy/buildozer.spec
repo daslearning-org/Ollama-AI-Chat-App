@@ -35,9 +35,14 @@ version.regex = ^(\d+\.\d+\.\d+)$
 
 #android.release_keystore = ~/keystores/dlchat.keystore
 
+
 # (str) Application versioning (method 2)
 # version.regex = __version__ = ['"](.*)['"]
 # version.filename = %(source.dir)s/main.py
+version.filename = %(source.dir)s/VERSION
+version.regex = ^(\d+\.\d+\.\d+)$
+
+#android.release_keystore = ~/keystores/dlchat.keystore
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy

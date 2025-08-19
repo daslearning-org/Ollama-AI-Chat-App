@@ -1,7 +1,8 @@
 # Changelogs
 
-## v0.1.4
-- Fixing the code block copy which now removes the markup tags from the copied text.
+## v0.2.0
+- Chaning from `Label` to `MDLabel` for `RstParagraph`, `RstListBullet` with a copy option
+- Added copy function which can convert markup text to plain text
 
 ## v0.1.3
 - Updating the screen file names (app remains same)
