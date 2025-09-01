@@ -9,7 +9,11 @@ __pycache__/
 # kivy
 .buildozer/
 logs/
+bin/
+dist/
+build/
 *.apk
+*.exe
 
 # Distribution / packaging
 .Python

@@ -40,7 +40,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='dasLearningChat',
+    name='OllamaAiChat',
     icon='data/images/favicon.ico',
     debug=False,
     bootloader_ignore_signals=False,
