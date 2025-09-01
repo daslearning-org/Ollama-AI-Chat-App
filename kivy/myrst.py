@@ -61,6 +61,7 @@ document.
 __all__ = ('MyRstDocument', )
 
 import os
+import re
 from os.path import dirname, join, exists, abspath
 from kivy.clock import Clock
 from kivy.compat import PY2
@@ -1464,6 +1465,8 @@ class _Visitor(nodes.NodeVisitor):
 
     def set_text(self, node, parent):
         text = self.text
+        #TODO: Make dropdown for THINK
+        text = re.sub(r'<THINK>.*?</THINK>', '', self.text, flags=re.DOTALL | re.IGNORECASE)
         if parent == 'term' or parent == 'field_name':
             text = '[b]%s[/b]' % text
         # search anchors

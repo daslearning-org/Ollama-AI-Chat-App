@@ -22,6 +22,7 @@ a = Analysis(
         "kivy.metrics",
         "kivymd.icon_definitions",
         "kivymd.uix.dropdownitem",
+        "kivy.uix.widget",
     ],
     hookspath=[],
     hooksconfig={},

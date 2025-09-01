@@ -1,5 +1,19 @@
 # kv_files/chatbot_screen.kv
 
+<TempSpinWait>:
+    id: temp_spin
+    orientation: 'horizontal'
+    adaptive_height: True
+
+    MDLabel:
+        text: "Please wait..."
+        font_style: "H5"
+
+    MDSpinner:
+        size_hint: None, None
+        size: dp(24), dp(24)
+        active: True
+
 <ChatbotScreen>:
     on_enter: app.update_chatbot_welcome(self)
 
@@ -24,10 +38,17 @@
             MDDropDownItem:
                 md_bg_color: "#bdc6b0"
                 #pos_hint: {"center_x": .5, "center_y": .7}
-                on_release: app.menu.open()
+                on_release: app.llm_menu.open()
                 text: "Choose Model"
                 id: llm_menu
                 font_size: sp(14)
+
+            Widget:
+                size_hint_x: 1
+
+            MDIconButton:
+                icon: "menu"
+                on_release: app.menu_bar_callback(self)
 
         MDScrollView: # chat history section with scroll enabled
             size_hint_y: 0.7 # Takes the 80%
@@ -69,7 +90,7 @@
                 multiline: True
                 max_height: "200dp"
                 size_hint_x: 0.8
-                #max_text_length: 250
+                keyboard_suggestions: True
                 font_size: sp(18)
             MDFillRoundFlatButton:
                 id: send_msg_button
@@ -77,6 +98,6 @@
                 size_hint_x: 0.2
                 size_hint_y: 1
                 font_size: sp(18)
-                on_release: app.send_message(self, chat_input, chat_history_id)
+                on_release: app.send_message(self, chat_input)
 
 # End

@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = DasLearning Chat
+title = Ollama AI Chatbot
 
 # (str) Package name
 package.name = dlchat
@@ -22,7 +22,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_exts = spec
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-#source.exclude_dirs = tests, bin, venv
+source.exclude_dirs = tests, logs, bin, dist, patches, .venv, venv, env, .env, p4a_local_recipes
 
 # (list) List of exclusions using pattern matching
 # Do not prefix with './'
@@ -30,14 +30,14 @@ source.include_exts = py,png,jpg,kv,atlas
 
 # (str) Application versioning (method 1)
 #version = 0.1.3
-version.filename = %(source.dir)s/VERSION
-version.regex = ^(\d+\.\d+\.\d+)$
+#version.filename = %(source.dir)s/VERSION
+#version.regex = ^(\d+\.\d+\.\d+)$
 
 #android.release_keystore = ~/keystores/dlchat.keystore
 
 # (str) Application versioning (method 2)
-# version.regex = __version__ = ['"](.*)['"]
-# version.filename = %(source.dir)s/main.py
+version.regex = __version__ = ['"](.*)['"]
+version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy

@@ -10,9 +10,11 @@
         id: ollama_url
         hint_text: "Enter the URI"
         mode: "rectangle"
+        helper_text: "ex: http://localhost:11434"
+        helper_text_mode: "persistent"
         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
         size_hint_x: 0.8
-        font_size: sp(24)
+        font_size: sp(18)
         multiline: False
     MDRectangleFlatButton:
         text: "Start Chat"
