@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = DasLearning Chat
+title = Ollama AI Chatbot
 
 # (str) Package name
 package.name = dlchat
@@ -22,7 +22,7 @@ source.include_exts = py,png,jpg,kv,atlas
 #source.exclude_exts = spec
 
 # (list) List of directory to exclude (let empty to not exclude anything)
-#source.exclude_dirs = tests, bin, venv
+source.exclude_dirs = tests, logs, bin, dist, patches, .venv, venv, env, .env, p4a_local_recipes
 
 # (list) List of exclusions using pattern matching
 # Do not prefix with './'
@@ -30,18 +30,18 @@ source.include_exts = py,png,jpg,kv,atlas
 
 # (str) Application versioning (method 1)
 #version = 0.1.3
-version.filename = %(source.dir)s/VERSION
-version.regex = ^(\d+\.\d+\.\d+)$
+#version.filename = %(source.dir)s/VERSION
+#version.regex = ^(\d+\.\d+\.\d+)$
 
 #android.release_keystore = ~/keystores/dlchat.keystore
 
 # (str) Application versioning (method 2)
-# version.regex = __version__ = ['"](.*)['"]
-# version.filename = %(source.dir)s/main.py
+version.regex = __version__ = ['"](.*)['"]
+version.filename = %(source.dir)s/main.py
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3,kivy,kivymd,requests,certifi,idna,charset_normalizer,urllib3,pyjnius,m2r2,docutils,mistune==0.8.4,filetype,pygments,pillow
+requirements = python3, kivy==2.3.1, kivymd==1.2.0, certifi, idna, charset_normalizer, urllib3, pyjnius, android, m2r2, docutils, mistune==0.8.4, filetype, pygments, pillow, requests
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -100,7 +100,7 @@ fullscreen = 0
 # (list) Permissions
 # (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
 #android.permissions = android.permission.INTERNET, (name=android.permission.WRITE_EXTERNAL_STORAGE;maxSdkVersion=18)
-android.permissions = android.permission.INTERNET
+android.permissions =  android.permission.READ_EXTERNAL_STORAGE, android.permission.WRITE_EXTERNAL_STORAGE, android.permission.INTERNET
 
 # (list) features (adds uses-feature -tags to manifest)
 #android.features = android.hardware.usb.host
@@ -109,7 +109,7 @@ android.permissions = android.permission.INTERNET
 android.api = 34
 
 # (int) Minimum API your APK / AAB will support.
-android.minapi = 21
+android.minapi = 28
 
 # (int) Android SDK version to use
 #android.sdk = 20
@@ -288,7 +288,7 @@ android.enable_androidx = True
 
 # (list) The Android archs to build for, choices: armeabi-v7a, arm64-v8a, x86, x86_64
 # In past, was `android.arch` as we weren't supporting builds for multiple archs at the same time.
-android.archs = arm64-v8a, armeabi-v7a
+android.archs = arm64-v8a
 
 # (int) overrides automatic versionCode computation (used in build.gradle)
 # this is not the same as app version and should only be edited if you know what you're doing
@@ -326,7 +326,7 @@ android.allow_backup = True
 #p4a.fork = kivy
 
 # (str) python-for-android branch to use, defaults to master
-#p4a.branch = master
+p4a.branch = develop
 
 # (str) python-for-android specific commit to use, defaults to HEAD, must be within p4a.branch
 #p4a.commit = HEAD

@@ -61,6 +61,7 @@ document.
 __all__ = ('MyRstDocument', )
 
 import os
+import re
 from os.path import dirname, join, exists, abspath
 from kivy.clock import Clock
 from kivy.compat import PY2

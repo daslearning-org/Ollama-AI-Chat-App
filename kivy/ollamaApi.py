@@ -1,5 +1,6 @@
 import requests
 import json
+from kivy.clock import Clock
 
 def get_llm_models(url):
     llm_models_url = f"{url}/api/tags"
@@ -17,30 +18,36 @@ def get_llm_models(url):
         print(f"Error with Ollama: {e}")
         return got_llm_models
 
-def chat_with_llm(url, model, messages):
+def chat_with_llm(url, model, messages, callback=None):
     chat_url = f"{url}/api/chat"
     msg_body = {
         "model": model,
         "messages": messages,
         "stream": False
     }
+    return_resp = {
+        "role": "init",
+        "content": "**Initials** in LLM response!"
+    }
     try:
         response = requests.post(chat_url, json=msg_body)
         respDict = response.json()
         if "message" in respDict:
-            return respDict["message"]
+            return_resp = respDict["message"]
         else:
             return_resp = {
                 "role": "error",
                 "content": "**Error** in LLM response!"
             }
-            return return_resp
     except Exception as e:
         print(f"Error with Ollama: {e}")
         return_resp = {
             "role": "error",
             "content": f"**Error** with Ollama: {e}"
         }
+    if callback:
+        Clock.schedule_once(lambda dt: callback(return_resp))
+    else:
         return return_resp
 
 # End
