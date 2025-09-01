@@ -4,14 +4,16 @@
     id: temp_spin
     orientation: 'horizontal'
     adaptive_height: True
+    padding: dp(10)
 
     MDLabel:
         text: "Please wait..."
-        font_style: "H5"
+        font_style: "Subtitle1"
+        adaptive_width: True
 
     MDSpinner:
         size_hint: None, None
-        size: dp(24), dp(24)
+        size: dp(14), dp(14)
         active: True
 
 <ChatbotScreen>:

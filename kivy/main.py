@@ -189,7 +189,20 @@ class MyApp(MDApp):
             padding=[dp(10), dp(10)],
             background_color = self.theme_cls.bg_normal
         )
+        copy_btn = MDFloatingActionButton(
+            icon="content-copy",
+            type="small",
+            theme_icon_color="Custom",
+            md_bg_color='#e9dff7',
+            icon_color='#211c29',
+        )
+        copy_btn.bind(on_release=self.copy_rst)
+        bot_msg_label.add_widget(copy_btn)
         self.chat_history_id.add_widget(bot_msg_label)
+
+    def copy_rst(self, instance):
+        rst_txt = instance.parent.text
+        Clipboard.copy(rst_txt)
 
     def add_usr_message(self, msg_to_add):
         # Adds the User msg into chat history
