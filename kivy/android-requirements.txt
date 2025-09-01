@@ -1,5 +1,5 @@
-kivy[base]
-kivymd
+kivy[base]==2.3.1
+kivymd==1.2.0
 m2r2
 buildozer
-Cython==0.29.33
+Cython==0.29.36
