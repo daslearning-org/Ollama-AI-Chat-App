@@ -13,6 +13,7 @@ from kivy.properties import StringProperty, NumericProperty, ObjectProperty
 from kivy.metrics import dp, sp
 from kivy.resources import resource_add_path
 from kivy.core.clipboard import Clipboard
+from kivy.utils import platform
 from kivymd.app import MDApp
 from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.label import MDLabel
@@ -89,6 +90,12 @@ class MyApp(MDApp):
         return Builder.load_file(kv_file_path)
 
     def on_start(self):
+        if platform == "android":
+            from android.permissions import request_permissions, Permission
+            request_permissions([
+                Permission.READ_EXTERNAL_STORAGE,
+                Permission.WRITE_EXTERNAL_STORAGE
+            ])
         menu_items = [
             {
                 "text": menu_key,
@@ -247,6 +254,7 @@ class MyApp(MDApp):
         if llm_resp["role"] == "assistant":
             self.messages.append(llm_resp)
         api_msg = llm_resp["content"]
+        api_msg = re.sub(r'<THINK>.*?</THINK>', '', api_msg, flags=re.DOTALL | re.IGNORECASE)
         api_msg = f"**Bot:** \n{api_msg}"
         self.chat_history_id.remove_widget(self.tmp_spin)
         self.is_llm_running = False
